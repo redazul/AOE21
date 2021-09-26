@@ -25,6 +25,9 @@ public class Spawner : MonoBehaviour
 
 
     public ItemDataContainer item;
+
+    [SerializeField]
+    Vector3 platformOffset;
     private void Awake()
     {
        
@@ -66,8 +69,8 @@ public class Spawner : MonoBehaviour
 
         isOccupied = true;
 
-        patient = Instantiate(patientPrefab, transform.parent);
-        patient.transform.position = transform.position;
+        patient = Instantiate(patientPrefab, this.transform);
+        patient.transform.position = transform.position + platformOffset;
     }
 
 
@@ -83,6 +86,8 @@ public class Spawner : MonoBehaviour
                 {
                     Debug.Log("The player is trying to save the patient");
                 }
+
+                player.item = null;
             }
             else
             {

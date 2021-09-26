@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerAction = true;
-
+            anim.SetInteger("Spell", 1);
 
         }
 
@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             playerAction = false;
+            anim.SetInteger("Spell", 0);
         }
 
 

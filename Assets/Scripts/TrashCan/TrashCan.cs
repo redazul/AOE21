@@ -8,7 +8,7 @@ public class TrashCan : MonoBehaviour
     public bool debugMode;
  
     [Tooltip("This is the logic of the player")]
-    public GameObject player;
+    public Player player;
 
 
 
@@ -22,7 +22,7 @@ public class TrashCan : MonoBehaviour
     IEnumerator FindComponents()
     {
 
-        //player = FindObjectOfType<Player>();
+        player = FindObjectOfType<Player>();
         yield return new WaitForEndOfFrame();
     }
 

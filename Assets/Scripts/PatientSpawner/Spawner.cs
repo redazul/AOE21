@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-
+    [SerializeField]
     [Tooltip("This is the logic of the player")]
     private Player player;
     private int i;

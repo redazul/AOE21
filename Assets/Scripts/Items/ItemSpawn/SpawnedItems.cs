@@ -44,30 +44,18 @@ public class SpawnedItems : MonoBehaviour
         if (debugMode)
         {
             Debug.Log(items[i]);
+            
         }
         itemSprite.sprite = items[i].itemSprite;
 
         item = items[i];
+        //this.name = JsonUtility.ToJson(items[i].itemName);
+        this.name = items[i].itemName;
         itemPresent = true;
 
-       
+
     }
 
-    public float itemTimerDuration = 10f;
-    private float itemTimer = 10f; 
-    private void Update()
-    {
-        if(itemTimer > 0)
-        {
-            itemTimer -= Time.deltaTime;
-        }
-        if(itemTimer <= 0)
-        {
-            Debug.Log("Spawned Items with timer");
-            SpawnItem();
-            itemTimer = itemTimerDuration;
-        }
-    }
 
 
     private void OnTriggerStay(Collider other)

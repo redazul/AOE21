@@ -44,18 +44,25 @@ public class PatientNeeds : MonoBehaviour
 
     private ScoreManager scoreManager;
 
+
+    [SerializeField]
+    private GameObject fireEffect;
+
+    private ParticleSystem particleSystem;
+
     private void Awake()
     {
-       
+        particleSystem = fireEffect.GetComponent<ParticleSystem>();
 
         i = Random.Range(0, items.Length);
 
         item = items[i];
     }
 
+    
     void Start()
     {
-
+        particleSystem.Stop();
         SpawnPatient();
 
         StartCoroutine(FindComponents());
@@ -83,7 +90,7 @@ public class PatientNeeds : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
     }
-
+ 
     public void SpawnPatient()
     {
 
@@ -94,12 +101,21 @@ public class PatientNeeds : MonoBehaviour
 
 
 
-       
+        StartCoroutine(TurnOffFlames());
+        particleSystem.Play(true);
+
         patient = Instantiate(patientPrefab, this.transform);
         patient.transform.position = transform.position + platformOffset;
         SetItem();
     }
 
+   
+    IEnumerator TurnOffFlames()
+    {
+       
+        yield return new WaitForSeconds(3);
+        particleSystem.Stop();
+    }
     public float timeRemaining = 20;
 
     private void Update()
@@ -113,11 +129,11 @@ public class PatientNeeds : MonoBehaviour
             Destroy(patient);
             itemSprite.sprite = null;
             timeRemaining = 20;
-
+            SpawnPatient();
             if (debugMode)
             {
                 Debug.Log("Zombie killed with timer");
-                SpawnPatient();
+               
             }
         }
     }
@@ -133,7 +149,9 @@ public class PatientNeeds : MonoBehaviour
             itemSprite.sprite = items[i].itemSprite;
 
             audioSource.Play();
-            
+
+          
+
         }
         else
         {

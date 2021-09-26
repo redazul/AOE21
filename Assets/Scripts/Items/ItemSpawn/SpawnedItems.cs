@@ -21,9 +21,17 @@ public class SpawnedItems : MonoBehaviour
 
 
     private Player player;
+
+    [SerializeField]
+    private GameObject fireEffect;
+
+    private ParticleSystem particleSystem;
+
     private void Start()
     {
+        particleSystem = fireEffect.GetComponent<ParticleSystem>();
 
+        particleSystem.Stop();
         itemSprite = GetComponent<SpriteRenderer>();
         SpawnItem();
         StartCoroutine(FindComponents());
@@ -45,6 +53,9 @@ public class SpawnedItems : MonoBehaviour
         {
             Debug.Log(items[i]);
         }
+
+        particleSystem.Play(true);
+        StartCoroutine(TurnOffFlames());
         itemSprite.sprite = items[i].itemSprite;
 
         item = items[i];
@@ -52,6 +63,14 @@ public class SpawnedItems : MonoBehaviour
 
        
     }
+
+    IEnumerator TurnOffFlames()
+    {
+
+        yield return new WaitForSeconds(3);
+        particleSystem.Stop();
+    }
+
 
     public float itemTimerDuration = 10f;
     private float itemTimer = 10f; 

@@ -11,14 +11,13 @@ public class PatientSpawner : MonoBehaviour
     [SerializeField] int maxPatients = 3;
     bool hasToWait = false;
     bool isFirstTime = true;
-    int patientsNum = 0;
+    public int patientsNum = 0;
 
     
     void FixedUpdate()
     {
 
         patientsNum = CountPatients();
-
 
         if (!hasToWait && patientsNum < maxPatients)
         {
@@ -28,7 +27,7 @@ public class PatientSpawner : MonoBehaviour
 
     }
 
-    IEnumerator SpawnCoroutine()
+    public IEnumerator SpawnCoroutine()
     {
         if (isFirstTime)
         {
@@ -47,7 +46,6 @@ public class PatientSpawner : MonoBehaviour
         }
 
         spawner[spawnerNum].GetComponent<Spawner>().SpawnPatient();
-        patientsNum++;
         hasToWait = false;
     }
 

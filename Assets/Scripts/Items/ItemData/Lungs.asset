@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Med Kit
   itemType: 2
-  itemSprite: {fileID: 21300000, guid: 664e9a903aeb34144a97b00e15f9192e, type: 3}
+  itemSprite: {fileID: 21300000, guid: 07f690af1c39ef74f995330ff663e6b0, type: 3}
   numberOfPrefabsToCreate: 5
   spawnPoints:
   - {x: 3.91, y: -5.82591, z: 12.34144}

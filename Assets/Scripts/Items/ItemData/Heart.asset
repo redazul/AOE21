@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Oxygen
   itemType: 1
-  itemSprite: {fileID: 21300000, guid: fca8ba6be241a6c4fbf9c4bc9cbfb9da, type: 3}
+  itemSprite: {fileID: 21300000, guid: 9959c891dc6f60c45be50fb618279aef, type: 3}
   numberOfPrefabsToCreate: 5
   spawnPoints:
   - {x: 3.91, y: -5.82591, z: 12.34144}

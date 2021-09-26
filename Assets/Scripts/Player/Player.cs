@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
     //player animations
     private Animator anim;
 
+    [SerializeField]
+    public SpriteRenderer itemSprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +46,7 @@ public class Player : MonoBehaviour
     {
         anim = GetComponent<Animator>();
 
-
+        
         yield return new WaitForEndOfFrame();
 
     }
@@ -66,7 +69,16 @@ public class Player : MonoBehaviour
             anim.SetInteger("Spell", 0);
         }
 
+        if(item != null)
+        {
+            itemSprite.sprite = item.itemSprite;
 
+        }
+        if(item == null)
+        {
+         
+            itemSprite.sprite = null;
+        }
 
         if (item != null && playerInZone)
         {

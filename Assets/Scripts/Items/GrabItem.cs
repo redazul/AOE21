@@ -36,11 +36,13 @@ public class GrabItem : MonoBehaviour
     }
 
     //when the player enters the trigger of the item and item on the player is null
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player") && player.playerAction && player.item == null)
         {
             player.item = itemDataContainer;
+
+            //player.itemSprite.sprite = itemDataContainer.itemSprite;
 
         }
     }

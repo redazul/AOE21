@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - green_spell
   - red_spell
+  - Gurney
   layers:
   - Default
   - TransparentFX

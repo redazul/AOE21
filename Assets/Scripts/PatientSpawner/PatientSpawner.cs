@@ -13,11 +13,6 @@ public class PatientSpawner : MonoBehaviour
     bool isFirstTime = true;
     int patientsNum = 0;
 
-    void Start()
-    {
-        
-    }
-
     
     void FixedUpdate()
     {

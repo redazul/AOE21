@@ -13,6 +13,9 @@ public class GrabItem : MonoBehaviour
 
     [SerializeField]
     private ItemDataContainer itemDataContainer = null;
+
+
+    public ItemType itemType;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,8 @@ public class GrabItem : MonoBehaviour
 
         player = FindObjectOfType<Player>();
 
+
+        itemType = (ItemType)Random.Range(0, System.Enum.GetValues(typeof(ItemType)).Length);
         yield return new WaitForEndOfFrame();
 
     }
@@ -35,7 +40,7 @@ public class GrabItem : MonoBehaviour
     {
         if (other.CompareTag("Player") && player.playerAction && player.item == null)
         {
-            player.item = this;
+            player.item = itemDataContainer;
 
         }
     }

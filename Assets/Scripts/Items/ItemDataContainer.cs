@@ -16,12 +16,17 @@ public enum ItemType
 public class ItemDataContainer : ScriptableObject
 {
 
-    // public string itemName;
+     public string itemName;
     // public string itemName;
 
     public ItemType itemType;
 
-    public Vector3 spawnPoint;
+    //public Vector3 spawnPoint;
+
+    public Sprite itemSprite;
+
+    public int numberOfPrefabsToCreate;
+    public Vector3[] spawnPoints;
 
 
 

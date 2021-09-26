@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     [Header("Player Casting Values ")]
     [Space(10)]
-    public bool turnOnSpell = true;
+    
 
     [SerializeField]
     private bool shotIsCooling;
@@ -25,8 +25,8 @@ public class Player : MonoBehaviour
     public bool playerAction = false;
 
     [Header("Item Info")]
-
-    public GrabItem item = null;
+    //start as null as player must pickup item
+    public ItemDataContainer item = null;
 
 
     //player animations
@@ -99,4 +99,7 @@ public class Player : MonoBehaviour
 
         }
     }
+
+
+  
 }
